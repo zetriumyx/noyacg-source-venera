@@ -35,7 +35,8 @@ class Noyacg extends ComicSource {
 
     minAppVersion = "1.6.0"
 
-    url = ""
+    /// 更新检查地址（测试版指向本仓库中的测试文件）
+    url = "https://cdn.jsdelivr.net/gh/zetriumyx/noyacg-source-venera@main/noyacg_test.js"
 
     static pageSize = 20
 

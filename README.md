@@ -29,10 +29,10 @@
 Venera → 漫画源 → 右上角 `+` → 从网络导入，填入本仓库的 jsDelivr 地址：
 
 ```
-https://cdn.jsdelivr.net/gh/<用户名>/<仓库名>@main/noyacg.js
+https://cdn.jsdelivr.net/gh/zetriumyx/noyacg-source-venera@main/noyacg.js
 ```
 
-把 `<用户名>` / `<仓库名>` 换成本仓库的实际路径即可。
+测试版换成同目录下的 `noyacg_test.js` 即可。
 
 > 国内网络若无法直连 `raw.githubusercontent.com`，优先使用上面的 jsDelivr 地址；也可在任意 GitHub 链接前加 `https://gh-proxy.com/` 前缀。
 
@@ -55,40 +55,34 @@ https://cdn.jsdelivr.net/gh/<用户名>/<仓库名>@main/noyacg.js
 
 ## 版本更新
 
-源文件中的 `url` 字段决定 App 的更新检查地址。发布自己的仓库后，请把它改成你的地址：
+源文件中的 `url` 字段决定 App 的更新检查地址，已指向本仓库：
 
 ```js
-url = "https://cdn.jsdelivr.net/gh/<用户名>/<仓库名>@main/noyacg.js"
+url = "https://cdn.jsdelivr.net/gh/zetriumyx/noyacg-source-venera@main/noyacg.js"
 ```
 
-改完后推送，之后 App 会据此提示更新。
+发新版本时：修改 `version` 字段（如 `1.4.0` → `1.4.1`）→ 提交推送，App 会据此提示更新。**版本号不变则不会提示。**
 
 > jsDelivr 对 `@main` 有约 12 小时缓存。急需立刻生效时，可用 tag 引用（如 `@1.4.0`），或在 jsDelivr 后台手动刷新缓存。
 
-## 发布到 GitHub
+## 更新流程（维护者）
+
+本仓库地址：`github.com/zetriumyx/noyacg-source-venera`
 
 ```bash
-# 1. 在 GitHub 网页端新建一个 public 仓库，例如 venera-noyacg
-
-# 2. 本地初始化并推送
-cd <放有 noyacg.js 与 README.md 的目录>
-git init
-git add noyacg.js noyacg_test.js README.md
-git commit -m "NoyACG 源 v1.4.0"
-git branch -M main
-git remote add origin https://github.com/<用户名>/<仓库名>.git
-git push -u origin main
-
-# 3. 修改 noyacg.js 里的 url 字段为你的 jsDelivr 地址后再次提交
-git commit -am "chore: 指向自有仓库更新地址"
+# 修改 noyacg.js 后，先把 version 改成新号，再推送
+git add -A
+git commit -m "fix: 修复 xxx（v1.4.1）"
 git push
 ```
+
+再通知用户：漫画源 → 点开本源的更新提示 → 更新即可。
 
 要点：
 
 - 仓库必须是 **public**，否则 raw / jsDelivr 无法匿名访问
 - 只放 `.js` 文件即可，无需构建步骤
-- 后续更新 = 改文件 → `git commit` → `git push`，App 端按 `version` 字段判断是否有新版本
+- App 通过 `version` 字段判断是否有新版本，**只改代码不改版本号，用户端不会收到更新提示**
 
 ## 免责声明
 

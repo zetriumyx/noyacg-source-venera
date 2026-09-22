@@ -35,8 +35,8 @@ class Noyacg extends ComicSource {
 
     minAppVersion = "1.6.0"
 
-    // 发布后改为你自己的仓库地址，例如 https://cdn.jsdelivr.net/gh/<user>/<repo>@main/noyacg.js
-    url = ""
+    /// 更新检查地址（推送新版本后 App 会据此提示更新）
+    url = "https://cdn.jsdelivr.net/gh/zetriumyx/noyacg-source-venera@main/noyacg.js"
 
     static pageSize = 20
 
