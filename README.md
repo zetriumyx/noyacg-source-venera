@@ -1,6 +1,8 @@
 # NoyACG — Venera 漫画源
 
-为 [Venera](https://github.com/venera-app/venera) 编写的 `noymanga.com` 图源插件。
+为 [Venera](https://github.com/venera-app/venera) 及其各种fork编写的NoyAcg图源插件。
+
+声明：完全由AI制作，基本不会再更新
 
 ## 文件说明
 
@@ -24,21 +26,8 @@
 
 ## 安装
 
-### 方式一：网络导入（推荐）
 
-Venera → 漫画源 → 右上角 `+` → 从网络导入，填入本仓库的 jsDelivr 地址：
-
-```
-https://cdn.jsdelivr.net/gh/zetriumyx/noyacg-source-venera@main/noyacg.js
-```
-
-测试版换成同目录下的 `noyacg_test.js` 即可。
-
-> 国内网络若无法直连 `raw.githubusercontent.com`，优先使用上面的 jsDelivr 地址；也可在任意 GitHub 链接前加 `https://gh-proxy.com/` 前缀。
-
-### 方式二：本地导入
-
-下载 `noyacg.js` 到手机 → Venera → 漫画源 → `+` → 从本地文件导入。
+下载 `noyacg.js` 或 `noyacg_test.js` 到手机，打开venera，导入该js文件即可。
 
 ## 设置项
 
@@ -63,26 +52,6 @@ url = "https://cdn.jsdelivr.net/gh/zetriumyx/noyacg-source-venera@main/noyacg.js
 
 发新版本时：修改 `version` 字段（如 `1.4.0` → `1.4.1`）→ 提交推送，App 会据此提示更新。**版本号不变则不会提示。**
 
-> jsDelivr 对 `@main` 有约 12 小时缓存。急需立刻生效时，可用 tag 引用（如 `@1.4.0`），或在 jsDelivr 后台手动刷新缓存。
-
-## 更新流程（维护者）
-
-本仓库地址：`github.com/zetriumyx/noyacg-source-venera`
-
-```bash
-# 修改 noyacg.js 后，先把 version 改成新号，再推送
-git add -A
-git commit -m "fix: 修复 xxx（v1.4.1）"
-git push
-```
-
-再通知用户：漫画源 → 点开本源的更新提示 → 更新即可。
-
-要点：
-
-- 仓库必须是 **public**，否则 raw / jsDelivr 无法匿名访问
-- 只放 `.js` 文件即可，无需构建步骤
-- App 通过 `version` 字段判断是否有新版本，**只改代码不改版本号，用户端不会收到更新提示**
 
 ## 免责声明
 
